@@ -6,8 +6,8 @@ Django admin is also implemented for ease of viewing and managing users and cont
 
 1) /api/v1/auth/users/
 
-	New User Registration, method = POST
-	Unique email field, authorization is based on it
+	New User Registration, method = POST.
+	Unique email field, authorization is based on it.
 	input data - UserCreate{
 			- username* - string
 			title: Имя, maxLength: 50, minLength: 1
@@ -77,7 +77,7 @@ Django admin is also implemented for ease of viewing and managing users and cont
 2) /api/v1/token/login/
 
 	Authorization of a registered user, obtaining a token for further actions in API.
-	Method - POST	
+	Method - POST.	
 	input data - TokenCreate{
 		- password - string
 		title: Password, minLength: 1
@@ -233,11 +233,11 @@ Django admin is also implemented for ease of viewing and managing users and cont
 
 5) /api/v1/posts
 	
-	Method - GET, POST
+	Method - GET, POST.
 	View a list of posts of other users, except for your own, sorted by the date. 
- 	Create new post
-	Only for authorized users
-	(Request headers must contain header «Authorizathion»: «Token ...»), if it's missing - error 403
+ 	Create new post.
+	Only for authorized users.
+	(Request headers must contain header «Authorizathion»: «Token ...»), if it's missing - error 403.
 	Input data for method POST- {
 		- title* - string
 		title: Заголовок, maxLength: 100, minLength: 1
@@ -391,7 +391,11 @@ Django admin is also implemented for ease of viewing and managing users and cont
 	Input data - None.
 	
 	1) api/v1/subs
+	Examples: 
+	
 	response - status code 200, 
+	
+	
 	{
     "count": 25,   - total quantity of subscriptions
     "next": http://127.0.0.1:8000/api/v1/subs?page=2, - next page on pagination
