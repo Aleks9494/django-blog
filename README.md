@@ -160,28 +160,28 @@ Django admin is also implemented for ease of viewing and managing users and cont
 		"email": "6@mail.ri",
 		"time_create": "2022-08-04T13:55:07.543221+03:00",
 		"number_of_posts": 0
-	    },
+	    }, <br>
 	    {
 		"id": 3,
 		"username": "Kostya",
 		"email": "3@mail.ru",
 		"time_create": "2022-08-02T10:55:50.871202+03:00",
 		"number_of_posts": 2
-	    },
+	    }, <br>
 	    {
 		"id": 4,
 		"username": "Maxim",
 		"email": "4@mail.ru",
 		"time_create": "2022-08-02T10:56:19.347405+03:00",
 		"number_of_posts": 1
-	    },
+	    }, <br>
 	    {
 		"id": 2,
 		"username": "Sasha",
 		"email": "2@mail.ru",
 		"time_create": "2022-08-02T10:55:13.353442+03:00",
 		"number_of_posts": 1
-	    },
+	    }, <br>
 	    {
 		"id": 5,
 		"username": "Slava",
@@ -200,28 +200,28 @@ Django admin is also implemented for ease of viewing and managing users and cont
 		"email": "5@mail.ru",
 		"time_create": "2022-08-02T11:08:40.796538+03:00",
 		"number_of_posts": 4
-	    },
+	    }, <br>
 	    {
 		"id": 3,
 		"username": "Kostya",
 		"email": "3@mail.ru",
 		"time_create": "2022-08-02T10:55:50.871202+03:00",
 		"number_of_posts": 2
-	    },
+	    }, <br>
 	    {
 		"id": 4,
 		"username": "Maxim",
 		"email": "4@mail.ru",
 		"time_create": "2022-08-02T10:56:19.347405+03:00",
 		"number_of_posts": 1
-	    },
+	    }, <br>
 	    {
 		"id": 2,
 		"username": "Sasha",
 		"email": "2@mail.ru",
 		"time_create": "2022-08-02T10:55:13.353442+03:00",
 		"number_of_posts": 1
-	    },
+	    }, <br>
 	    {
 		"id": 57,
 		"username": "DDDDDD",
@@ -256,49 +256,49 @@ Django admin is also implemented for ease of viewing and managing users and cont
 		"content": "dsfsdfsdfsdf",
 		"time_create": "2022-08-03T15:25:34.930296+03:00",
 		"author_email": "2@mail.ru"
-	    },
+	    }, <br>
 	    {
 		"id": 9,
 		"title": "Post User 5 again",
 		"content": "22234343243333333332",
 		"time_create": "2022-08-02T12:03:16.330073+03:00",
 		"author_email": "5@mail.ru"
-	    },
+	    }, <br>
 	    {
 		"id": 7,
 		"title": "Post User 5",
 		"content": "22234343243333333332",
 		"time_create": "2022-08-02T11:58:45.558509+03:00",
 		"author_email": "5@mail.ru"
-	    },
+	    }, <br>
 	    {
 		"id": 5,
 		"title": "Post user 3 again",
 		"content": "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD",
 		"time_create": "2022-08-02T11:04:38.944181+03:00",
 		"author_email": "3@mail.ru"
-	    },
+	    }, <br>
 	    {
 		"id": 4,
 		"title": "Post user 4",
 		"content": "VVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
 		"time_create": "2022-08-02T11:03:42.788053+03:00",
 		"author_email": "4@mail.ru"
-	    },
+	    }, <br>
 	    {
 		"id": 2,
 		"title": "Post User 3",
 		"content": "PPPPPPPPPPPPPPPPPPPPPPPP",
 		"time_create": "2022-08-02T10:58:42.714411+03:00",
 		"author_email": "3@mail.ru"
-	    }
-	]	
+	    } 
+	]	<br>
 	
-	method POST 
+	method POST <br>
 	
-	 - field title is unique
+	 - field title is unique <br>
 	
-	Examples:
+	Examples: <br>
 
 	1) input data -  
 		 {
