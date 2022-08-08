@@ -9,7 +9,7 @@ Django admin is also implemented for ease of viewing and managing users and cont
 	New User Registration, method = POST.
 	Unique email field, authorization is based on it.
 	
-	Input data - UserCreate{
+	Input data - UserCreate{<br>
 			- username* - string
 			title: Имя, maxLength: 50, minLength: 1
 		 	- email* - string($email)
