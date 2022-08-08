@@ -300,22 +300,22 @@ Django admin is also implemented for ease of viewing and managing users and cont
 	
 	Examples: <br>
 
-	1) input data -  
+	1) input data -  <br>
 		 {
         	"title": "Post Test_User",
         	"content": "Content of Post"
-    	}	
+    	} <br>	
 	
-	response - status code 201, 
+	response - status code 201, <br>
 	  	{
 		"id": 395,
 		"title": "Post Test_User",
 		"content": "Content of Post",
 		"time_create": "2022-08-08T11:35:14.082955+03:00",
 		"author_email": "user@example.com"	    
-	}
+	} <br>
 	
-	response - status code 400,
+	response - status code 400, <br>
 		{
     		"title": [
         		"Пост с таким Заголовок уже существует."
@@ -325,25 +325,25 @@ Django admin is also implemented for ease of viewing and managing users and cont
 	2) input data -  
 		 {
         	"title": "Post Test_User again",
-    	}
+    	} <br>
 	
-	response - status code 400,
+	response - status code 400, 
 		{
     		"content": [
         		"Обязательное поле."
     		]
 	}
 
-6) /api/v1/posts/<int:post_id>
+6) <b>/api/v1/posts/<int:post_id> </b>
 
 	Add and delete a post to the user's subscriptions feed. Method - GET, DELETE.
 	Only for authorized users.
 	(Request headers must contain header «Authorizathion»: «Token ...»), if it's missing - error 403.
-	Input data - None.
+	Input data - None. <br>
 	
-	1) method GET
+	1) method GET <br>
 
-		1) /api/v1/posts/15
+		1) /api/v1/posts/15 <br>
 
 		response - status code 200,	
 		{
@@ -355,23 +355,23 @@ Django admin is also implemented for ease of viewing and managing users and cont
     		"message": "You are already subscribed to this post!!"
 		}	
 	
-		2) /api/v1/posts/289
+		2) /api/v1/posts/289 <br>
 
 		response - status code 404,
 		{
     		"message": "Post matching query does not exist."
 		}
 	
-	2) метод DELETE
+	2) метод DELETE <br>
 
-		1) /api/v1/posts/250
+		1) /api/v1/posts/250 <br>
 
 		response - status code 404,
 		{
     		"message": "Subscriptions matching query does not exist."
 		}
 	
-		2) /api/v1/posts/15
+		2) /api/v1/posts/15 <br>
 
 		response - status code 200,
 		{
@@ -379,7 +379,7 @@ Django admin is also implemented for ease of viewing and managing users and cont
 		}
 
 
-7) /api/v1/subs
+7) <b>/api/v1/subs</b>
 
 	Method - GET.
 	View the feed of the user's subscriptions, sorting by the date the post was created.
@@ -387,19 +387,20 @@ Django admin is also implemented for ease of viewing and managing users and cont
 	Filtering by post read.
 	Only for authorized users.
 	Request headers must contain header «Authorizathion»: «Token ...»), if it's missing - error 403.
-	Input data - None.
+	Input data - None.<br>
 	
-	1) api/v1/subs
-	Examples: 
+	1) api/v1/subs <br>
 	
-	response - status code 200, 
+	Examples: <br>
+	
+	response - status code 200, <br> 
 	
 	
 	{
-    "count": 25,   - total quantity of subscriptions
-    "next": http://127.0.0.1:8000/api/v1/subs?page=2, - next page on pagination
-    "previous": http://127.0.0.1:8000/api/v1/subs, - previos page on pagination
-    "results": [
+    "count": 25,   - total quantity of subscriptions <br>
+    "next": http://127.0.0.1:8000/api/v1/subs?page=2, - next page on pagination <br>
+    "previous": http://127.0.0.1:8000/api/v1/subs, - previos page on pagination <br>
+    "results": [ <br>
         {
             "id": 167,
             "post": {
@@ -410,7 +411,7 @@ Django admin is also implemented for ease of viewing and managing users and cont
                 "author_email": "5@mail.ru"
             },
             "readed": false
-        },
+        }, <br>
         {
             "id": 166,
             "post": {
@@ -421,7 +422,7 @@ Django admin is also implemented for ease of viewing and managing users and cont
                 "author_email": "5@mail.ru"
             },
             "readed": false
-        },
+        }, <br>
         {
             "id": 165,
             "post": {
@@ -432,7 +433,7 @@ Django admin is also implemented for ease of viewing and managing users and cont
                 "author_email": "3@mail.ru"
             },
             "readed": false
-        },
+        }, <br>
         {
             "id": 164,
             "post": {
@@ -443,7 +444,7 @@ Django admin is also implemented for ease of viewing and managing users and cont
                 "author_email": "4@mail.ru"
             },
             "readed": true
-        },
+        }, <br>
         {
             "id": 163,
             "post": {
@@ -454,19 +455,19 @@ Django admin is also implemented for ease of viewing and managing users and cont
                 "author_email": "3@mail.ru"
             },
             "readed": false
-        },
+        }, <br>
         .......
     ]
-}
+} <br>
 
-	2) /api/v1/subs?readed=True
+	2) /api/v1/subs?readed=True <br>
 	
-	response - status code 200,
+	response - status code 200, <br>
 	{
-    "count": 1,
-    "next": null,
-    "previous": null,
-    "results": [
+    "count": 1, <br>
+    "next": null, <br>
+    "previous": null, <br>
+    "results": [ <br>
         {
             "id": 164,
             "post": {
@@ -477,26 +478,26 @@ Django admin is also implemented for ease of viewing and managing users and cont
                 "author_email": "4@mail.ru"
             },
             "readed": true
-        }
+        } <br>
     ]
-}
+} <br>
 
 
-8) /api/v1/subs/<int:sub_id>
+8) <b>/api/v1/subs/<int:sub_id></b>
 
-	Method - GET, PUT
-	GET - View subscription and post in subscription
-	PUT -  Make a read mark of post
-	Only for authorized users
-	Request headers must contain header «Authorizathion»: «Token ...»), if it's missing - error 403
-	Input data - None
+	Method - GET, PUT.
+	GET - View subscription and post in subscription.
+	PUT -  Make a read mark of post.
+	Only for authorized users.
+	Request headers must contain header «Authorizathion»: «Token ...»), if it's missing - error 403.
+	Input data - None. <br>
 	
-	1) method GET
+	1) method GET <br>
 	
-		1) /api/v1/subs/168
+		1) /api/v1/subs/168 <br>
 	
 		{
-	    	"id": 168,
+	    	"id": 168, 
 	    	"post": {
 			"id": 15,
 			"title": "Post User 2",
@@ -505,23 +506,23 @@ Django admin is also implemented for ease of viewing and managing users and cont
 			"author_email": "2@mail.ru"
 		    },
 		    "readed": false
-		}
+		} <br>
 	
-		2) /api/v1/subs/261
-	
-		{
-    			"detail": "Страница не найдена."
-		}
-	
-	2) method PUT
-	
-		1) /api/v1/subs/261
+		2) /api/v1/subs/261 <br>
 	
 		{
     			"detail": "Страница не найдена."
-		}
+		} <br>
 	
-		2) /api/v1/subs/168
+	2) method PUT <br>
+	
+		1) /api/v1/subs/261 <br>
+	
+		{
+    			"detail": "Страница не найдена."
+		} <br>
+	
+		2) /api/v1/subs/168 <br>
 	
 		input data - 
 		{
@@ -530,9 +531,9 @@ Django admin is also implemented for ease of viewing and managing users and cont
    	 		"content": "string"
   		},
   		"readed": true
-		}
+		} <br>
 	
-		- Post data is read-only and cannot be changed.
+		- Post data is read-only and cannot be changed. <br>
 	
 		response - status code 200, 
 			{
@@ -545,7 +546,7 @@ Django admin is also implemented for ease of viewing and managing users and cont
 			    "author_email": "2@mail.ru"
 			  },
 			  "readed": true
-		}
+		} 
 	
 	
 				
