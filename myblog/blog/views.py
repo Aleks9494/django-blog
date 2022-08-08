@@ -1,10 +1,10 @@
 from django.db.models import Q
+from django.http import JsonResponse
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.generics import get_object_or_404
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Post, MyUser, Subscriptions
@@ -43,23 +43,24 @@ class SubsriptionUserApiView(APIView):
             user = MyUser.objects.get(pk=self.request.user.id)
             sub = Subscriptions.objects.filter(user=user, post=post).exists()
             if sub:
-                return Response({'message': f"You are already subscribed to this post!!"})
+                return JsonResponse({'message': "You are already subscribed to this post!!"},
+                                    status=status.HTTP_400_BAD_REQUEST)
 
             sub = Subscriptions(user=user, post=post)
             sub.save()
         except Exception as e:
-            return Response({'message': f'{e}'})
+            return JsonResponse({'message': f'{e}'}, status=status.HTTP_404_NOT_FOUND)
 
-        return Response({'message': f"Post {post.title} was added to your's subscriptions!!"})
+        return JsonResponse({'message': f"Post {post.title} was added to your's subscriptions!!"})
 
     def delete(self, request, **kwargs):
         try:
-            sub = Subscriptions.objects.get(post__id=self.kwargs['pk'])
+            sub = Subscriptions.objects.get(post__id=self.kwargs['pk'], user_id=self.request.user.id)
             sub.delete()
         except Exception as e:
-            return Response({'message': f'{e}'})
+            return JsonResponse({'message': f'{e}'}, status=status.HTTP_404_NOT_FOUND)
 
-        return Response({'message': f"Post {sub.post} was deleted from your's subscriptions!!"})
+        return JsonResponse({'message': f"Post {sub.post} was deleted from your's subscriptions!!"})
 
 
 class SubscriptionsListApiViewPagination(PageNumberPagination):
@@ -82,7 +83,7 @@ class SubscriptionsListApiView(generics.ListAPIView):
         return Subscriptions.objects.filter(user=self.request.user).order_by('-post__time_create')
 
 
-# GET - просмотр подписки и поста, POST - отметка о прочтении
+# GET - просмотр подписки и поста, PUT - отметка о прочтении
 class SubApiView(generics.RetrieveUpdateAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = SubscriptionSerializer

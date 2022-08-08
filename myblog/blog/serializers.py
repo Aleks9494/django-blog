@@ -18,7 +18,6 @@ class PostSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'content', 'time_create', 'author', 'author_email')
 
     def create(self, validated_data):
-        print(validated_data['author'])
         user = MyUser.objects.get(email=validated_data['author'])
         user.number_of_posts += 1
         user.save()

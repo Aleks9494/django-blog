@@ -50,9 +50,9 @@ class MyUser(AbstractBaseUser):
     REQUIRED_FIELDS = ['username']
 
     class Meta:
-        verbose_name = 'Пользователь'  # название в админ-панели
-        verbose_name_plural = 'Пользователи'  # для множественного числа
-        ordering = ['username', 'time_create', 'number_of_posts']   # сортировка
+        verbose_name = 'Пользователь'
+        verbose_name_plural = 'Пользователи'
+        ordering = ['username', 'time_create', 'number_of_posts']
 
     def __str__(self):
         return self.email
@@ -79,9 +79,9 @@ class Post(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Пост'  # название в админ-панели
-        verbose_name_plural = 'Посты'  # для множественного числа
-        ordering = ['title', 'time_create']   # сортировка
+        verbose_name = 'Пост'
+        verbose_name_plural = 'Посты'
+        ordering = ['title', 'time_create']
 
 
 class Subscriptions(models.Model):
@@ -92,6 +92,6 @@ class Subscriptions(models.Model):
     readed = models.BooleanField(default=False, verbose_name='Прочитан')
 
     class Meta:
-        verbose_name = 'Подписка'  # название в админ-панели
-        verbose_name_plural = 'Подписки'  # для множественного числа
-        ordering = ['user', 'post']   # сортировка
+        verbose_name = 'Подписка'
+        verbose_name_plural = 'Подписки'
+        ordering = ['user', 'post']

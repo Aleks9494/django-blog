@@ -46,10 +46,10 @@ class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
 
-    list_display = ('username', 'email', 'time_create', 'number_of_posts', 'is_active', 'is_admin')  # показывать на странице категории в admin
-    search_fields = ('email',)  # поиск по имени сверху
-    list_filter = ('email',)  # поиск по фильтрам справа
-    list_editable = ('number_of_posts', 'is_active', 'is_admin', )
+    list_display = ('username', 'email', 'time_create', 'number_of_posts', 'is_active', 'is_admin')
+    search_fields = ('email',)
+    list_filter = ('email',)
+    list_editable = ('is_active', 'is_admin', )
     filter_horizontal = ()
 
     fieldsets = (
@@ -57,8 +57,7 @@ class UserAdmin(BaseUserAdmin):
         ('Personal info', {'fields': ('username', 'number_of_posts')}),
         ('Permissions', {'fields': ('is_admin',)}),
     )
-    # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
-    # overrides get_fieldsets to use this attribute when creating a user.
+
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
@@ -73,16 +72,16 @@ admin.site.unregister(Group)
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'content', 'time_create', 'author')  # показывать на странице категории в admin
-    search_fields = ('title', 'author',)  # поиск по имени сверху
-    list_filter = ('title', 'author',)  # поиск по фильтрам справа
+    list_display = ('title', 'content', 'time_create', 'author')
+    search_fields = ('title', 'author__email',)
+    list_filter = ('author__email',)
 
 
 @admin.register(Subscriptions)
 class SubscriptionsAdmin(admin.ModelAdmin):
-    list_display = ('user', 'post', 'get_author_of_post_email', 'readed')  # показывать на странице категории в admin
-    search_fields = ('user', 'post',)  # поиск по имени сверху
-    list_filter = ('user', 'post',)  # поиск по фильтрам справа
+    list_display = ('user', 'post', 'get_author_of_post_email', 'readed')
+    search_fields = ('user__email', 'post__title',)
+    list_filter = ('user__email', 'post__title',)
 
     @staticmethod
     def get_author_of_post_email(obj):
