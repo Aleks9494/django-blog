@@ -21,72 +21,72 @@ Django admin is also implemented for ease of viewing and managing users and cont
 	Examples:<br>
 	
 	1) input data -  
-		{<br>
-	  "username": "Test_User",<br>
-	  "email": "user@example.com",<br>
-	  "password": "password55648415"<br>
+		{
+	  "username": "Test_User",
+	  "email": "user@example.com",
+	  "password": "password55648415"
 	}	
 	
 	response - status code 201, 
-		{<br>
-	  "username": "Test_User",<br>
-	  "email": "user@example.com",<br>
+		{
+	  "username": "Test_User",
+	  "email": "user@example.com",
 	  "id": 1194<br>
 	}
 	
 	2) input data -  
-		{<br>
-	  "username": "Test_User_1",<br>
-	  "email": "user@example.com",<br>
-	  "password": "password55648415"<br>
+		{
+	  "username": "Test_User_1",
+	  "email": "user@example.com",
+	  "password": "password55648415"
 	}
 	
-	response - status code 400, <br>
-		{<br>
-		  "email": [<br>
-		    	"Пользователь с таким Емайл уже существует."<br>
-		  ]<br>
+	response - status code 400,
+		{
+		  "email": [
+		    	"Пользователь с таким Емайл уже существует."
+		  ]
 	}
 	
 	3) input data -  
-		{<br>
-	  "username": "Test_User_1",<br>
-	  "email": "user_2@example.com",<br>
-	  "password": "password"<br>
+		{
+	  "username": "Test_User_1",
+	  "email": "user_2@example.com",
+	  "password": "password"
 	}
 	
-	response - status code 400, <br>
-		{<br>
-  		"password": [<br>
-    			"Введённый пароль слишком широко распространён."<br>
-  		]<br>
+	response - status code 400, 
+		{
+  		"password": [
+    			"Введённый пароль слишком широко распространён."
+  		]
 	}	
 	
 	4) input data -  
-		{<br>
-	  "email": "user_2@example.com",<br>
-	  "password": "password"<br>
+		{
+	  "email": "user_2@example.com",
+	  "password": "password"
 	}
 	
-	response - status code 400, <br>
-		{<br>
-  		""username": [<br>
-    			"Обязательное поле."<br>
-  		]<br>
+	response - status code 400, 
+		{
+  		"username": [
+    			"Обязательное поле."
+  		]
 	}
 	
-2) /api/v1/token/login/
+2) <b>/api/v1/token/login/</b>
 
 	Authorization of a registered user, obtaining a token for further actions in API.
 	Method - POST.	
-	input data - TokenCreate{
-		- password - string
-		title: Password, minLength: 1
-		- email - string
-		title: Email, minLength: 1
+	input data - TokenCreate{ <br>
+		- password - string<br>
+		title: Password, minLength: 1<br>
+		- email - string<br>
+		title: Email, minLength: 1<br>
 	}
 	
-	Examples:
+	Examples:<br>
 
 	1) input data -  
 		{
@@ -112,27 +112,27 @@ Django admin is also implemented for ease of viewing and managing users and cont
   		]
 	}
 	
-3) /api/v1/token/logout/
+3) <b>/api/v1/token/logout/</b>
 	
 	Logged out user, method - POST
 	Input data - None
 	Request headers must contain header «Authorizathion»: «Token ...»
 	
-	Examples:
+	Examples: <br>
 	
-	1) header present with valid token - response, status code 204
+	1) header present with valid token - response, status code 204 <br>
 	
-	2) header present, token not valid - response, status code 403
+	2) header present, token not valid - response, status code 403 <br>
 		{
     			"detail": "Недопустимый токен."
 		}
 		
-	3) no header - response, status code 403
+	3) no header - response, status code 403 <br>
 		{
     			"detail": "Учетные данные не были предоставлены."
 		}	
 	
-4) /api/v1/users
+4) <b>/api/v1/users</b>
 	
 	View a list of other users besides yourself and the admin. Method - GET/
 	Only for authorized users
