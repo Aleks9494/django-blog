@@ -1,7 +1,7 @@
-Documentation for the implemented API.
-Includes routes and their methods, input and output data, examples of requests and responses.
-It is also possible to see the SWAGGER documentation for the route 'localhost/swagger/'
-Django admin is also implemented for ease of viewing and managing users and content.
+Documentation for the implemented API. <br>
+Includes routes and their methods, input and output data, examples of requests and responses. <br>
+It is also possible to see the SWAGGER documentation for the route 'localhost/swagger/'. <br>
+Django admin is also implemented for ease of viewing and managing users and content. <br>
 
 
 1) <b>/api/v1/auth/users/</b>
@@ -231,25 +231,24 @@ Django admin is also implemented for ease of viewing and managing users and cont
 	    }
 	]
 
-5) /api/v1/posts
+5) <b>/api/v1/posts</b>
 	
 	Method - GET, POST.
 	View a list of posts of other users, except for your own, sorted by the date. 
  	Create new post.
 	Only for authorized users.
-	(Request headers must contain header «Authorizathion»: «Token ...»), if it's missing - error 403.
-	Input data for method POST- {
-		- title* - string
-		title: Заголовок, maxLength: 100, minLength: 1
-		- content* - string
-		title: Контент, minLength: 1
- 		}
+	(Request headers must contain header «Authorizathion»: «Token ...»), if it's missing - error 403.<br>
+	Input data for method POST- {<br>
+		- title* - string <br>
+		title: Заголовок, maxLength: 100, minLength: 1 <br>
+		- content* - string <br>
+		title: Контент, minLength: 1 <br>
+ 		} <br>
  		
  		
- 	method GET — output data:  id, title, content, time_create, author_email, hiddenfield author
+ 	method GET — output data:  id, title, content, time_create, author_email, hiddenfield author <br>
  	
-	Examples:
-	
+	Examples: <br>
 	 	[
 	    {
 		"id": 15,
