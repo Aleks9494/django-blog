@@ -193,7 +193,7 @@ Django admin is also implemented for ease of viewing and managing users and cont
 	
 	4) sorting by number of posts - api/v1/users?ordering=-number_of_posts		
 			
-			[
+		[
 	    {
 		"id": 5,
 		"username": "Slava",
