@@ -78,13 +78,13 @@ Django admin is also implemented for ease of viewing and managing users and cont
 2) <b>/api/v1/token/login/</b>
 
 	Authorization of a registered user, obtaining a token for further actions in API.
-	Method - POST.	
-	input data - TokenCreate{ <br>
+	Method - POST. <br>	
+	Input data - TokenCreate{ <br>
 		- password - string<br>
 		title: Password, minLength: 1<br>
 		- email - string<br>
 		title: Email, minLength: 1<br>
-	}
+	} <br>
 	
 	Examples:<br>
 
@@ -115,8 +115,8 @@ Django admin is also implemented for ease of viewing and managing users and cont
 3) <b>/api/v1/token/logout/</b>
 	
 	Logged out user, method - POST
-	Input data - None
-	Request headers must contain header «Authorizathion»: «Token ...»
+	Input data - None.
+	Request headers must contain header «Authorizathion»: «Token ...». <br>
 	
 	Examples: <br>
 	
@@ -134,26 +134,25 @@ Django admin is also implemented for ease of viewing and managing users and cont
 	
 4) <b>/api/v1/users</b>
 	
-	View a list of other users besides yourself and the admin. Method - GET/
-	Only for authorized users
-	(Request headers must contain header «Authorizathion»: «Token ...»)
-	Ability to sort by number of posts
-	Input data - None
+	View a list of other users besides yourself and the admin. Method - GET.
+	Only for authorized users.
+	(Request headers must contain header «Authorizathion»: «Token ...»).
+	Ability to sort by number of posts.
+	Input data - None. <br>
 	
-	Examples: 
+	Examples: <br>
 	
-	1) header present, token not valid - response, status code 403
+	1) header present, token not valid - response, status code 403 <br>
 		{
     			"detail": "Недопустимый токен."
 		}
 		
-	2) no header - response, status code 403
+	2) no header - response, status code 403 <br>
 		{
     			"detail": "Учетные данные не были предоставлены."
 		}
 	
-	3) header present with valid token - response, status code 200
-			
+	3) header present with valid token - response, status code 200 <br>	
 		[
 	    {
 		"id": 57,
