@@ -249,6 +249,7 @@ Django admin is also implemented for ease of viewing and managing users and cont
  	method GET — output data:  id, title, content, time_create, author_email, hiddenfield author
  	
 	Examples:
+	
 	 	[
 	    {
 		"id": 15,
@@ -336,10 +337,10 @@ Django admin is also implemented for ease of viewing and managing users and cont
 
 6) /api/v1/posts/<int:post_id>
 
-	Add and delete a post to the user's subscriptions feed. Method - GET, DELETE
-	Only for authorized users
-	(Request headers must contain header «Authorizathion»: «Token ...»), if it's missing - error 403
-	Input data - None
+	Add and delete a post to the user's subscriptions feed. Method - GET, DELETE.
+	Only for authorized users.
+	(Request headers must contain header «Authorizathion»: «Token ...»), if it's missing - error 403.
+	Input data - None.
 	
 	1) method GET
 
@@ -381,13 +382,13 @@ Django admin is also implemented for ease of viewing and managing users and cont
 
 7) /api/v1/subs
 
-	Method - GET
-	View the feed of the user's subscriptions, sorting by the date the post was created
-	Pagination - 10 posts per page
-	Filtering by post read
-	Only for authorized users
-	Request headers must contain header «Authorizathion»: «Token ...»), if it's missing - error 403
-	Input data - None
+	Method - GET.
+	View the feed of the user's subscriptions, sorting by the date the post was created.
+	Pagination - 10 posts per page.
+	Filtering by post read.
+	Only for authorized users.
+	Request headers must contain header «Authorizathion»: «Token ...»), if it's missing - error 403.
+	Input data - None.
 	
 	1) api/v1/subs
 	response - status code 200, 
