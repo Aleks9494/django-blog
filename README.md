@@ -4,75 +4,75 @@ It is also possible to see the SWAGGER documentation for the route 'localhost/sw
 Django admin is also implemented for ease of viewing and managing users and content.
 
 
-1) /api/v1/auth/users/
+1) <b>/api/v1/auth/users/</b>
 
 	New User Registration, method = POST.
 	Unique email field, authorization is based on it.
 	
 	Input data - UserCreate{<br>
-			- username* - string
-			title: Имя, maxLength: 50, minLength: 1
-		 	- email* - string($email)
-			title: Емайл, maxLength: 255, minLength: 1
-			- password* - string
-			title: Password, minLength: 1
-		 	}
+			- username* - string<br>
+			title: Имя, maxLength: 50, minLength: 1<br>
+		 	- email* - string($email)<br>
+			title: Емайл, maxLength: 255, minLength: 1<br>
+			- password* - string<br>
+			title: Password, minLength: 1<br>
+		 	}<br>
 		 
-	Examples:
+	Examples:<br>
 	
 	1) input data -  
-		{
-	  "username": "Test_User",
-	  "email": "user@example.com",
-	  "password": "password55648415"
+		{<br>
+	  "username": "Test_User",<br>
+	  "email": "user@example.com",<br>
+	  "password": "password55648415"<br>
 	}	
 	
 	response - status code 201, 
-		{
-	  "username": "Test_User",
-	  "email": "user@example.com",
-	  "id": 1194
+		{<br>
+	  "username": "Test_User",<br>
+	  "email": "user@example.com",<br>
+	  "id": 1194<br>
 	}
 	
 	2) input data -  
-		{
-	  "username": "Test_User_1",
-	  "email": "user@example.com",
-	  "password": "password55648415"
+		{<br>
+	  "username": "Test_User_1",<br>
+	  "email": "user@example.com",<br>
+	  "password": "password55648415"<br>
 	}
 	
-	response - status code 400, 
-		{
-		  "email": [
-		    	"Пользователь с таким Емайл уже существует."
-		  ]
+	response - status code 400, <br>
+		{<br>
+		  "email": [<br>
+		    	"Пользователь с таким Емайл уже существует."<br>
+		  ]<br>
 	}
 	
 	3) input data -  
-		{
-	  "username": "Test_User_1",
-	  "email": "user_2@example.com",
-	  "password": "password"
+		{<br>
+	  "username": "Test_User_1",<br>
+	  "email": "user_2@example.com",<br>
+	  "password": "password"<br>
 	}
 	
-	response - status code 400, 
-		{
-  		"password": [
-    			"Введённый пароль слишком широко распространён."
-  		]
+	response - status code 400, <br>
+		{<br>
+  		"password": [<br>
+    			"Введённый пароль слишком широко распространён."<br>
+  		]<br>
 	}	
 	
 	4) input data -  
-		{
-	  "email": "user_2@example.com",
-	  "password": "password"
+		{<br>
+	  "email": "user_2@example.com",<br>
+	  "password": "password"<br>
 	}
 	
-	response - status code 400, 
-		{
-  		""username": [
-    			"Обязательное поле."
-  		]
+	response - status code 400, <br>
+		{<br>
+  		""username": [<br>
+    			"Обязательное поле."<br>
+  		]<br>
 	}
 	
 2) /api/v1/token/login/
